@@ -1,8 +1,11 @@
 <?php
-// Menghentikan sesi yang sedang berjalan
-if(session_status() === PHP_SESSION_NONE)
+// Memeriksa apakah session telah dimulai
+if (session_status() == PHP_SESSION_NONE) {
+    // Jika belum dimulai, maka mulai session
     session_start();
-session_destroy();
-
-header('location:index.php');
+    // Menghancurkan session yang ada
+    session_destroy();
+    // Mengarahkan pengguna kembali ke halaman indeks
+    header('location: index.php');
+}
 ?>

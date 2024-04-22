@@ -1,20 +1,19 @@
 <?php
-// Menginisialisasi sesi, memeriksa level akses pengguna, dan memuat halaman admin
-if(session_status() === PHP_SESSION_NONE)
+if (session_status() === PHP_SESSION_NONE) {
     session_start();
+}
 
-if(!empty($_SESSION['level'])){
+if (!empty($_SESSION['level'])) {
     require 'config/koneksi.php';
     require 'fungsi/pesan_kilat.php';
 
     include 'admin/template/header.php';
-    if(!empty($_GET['page'])){
+    if (!empty($_GET['page'])) {
         include 'admin/module/' . $_GET['page'] . '/index.php';
     } else {
         include 'admin/template/home.php';
     }
     include 'admin/template/footer.php';
-} else{
+} else {
     header("Location: login.php");
 }
-?>

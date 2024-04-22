@@ -1,9 +1,7 @@
 <?php
-// Mencegah serangan SQL injection
-date_default_timezone_set("Asia/Jakarta");
+date_default_timezone_set('Asia/Jakarta');
 $koneksi = mysqli_connect("localhost", "root", "", "prakwebdb");
 
-if(mysqli_connect_errno()){
-    die("koneksi database gagal: " . mysqli_connect_error());
+if (mysqli_connect_error()) {
+    die("Koneksi database gagal: " . mysqli_connect_error());
 }
-?>

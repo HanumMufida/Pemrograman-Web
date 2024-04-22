@@ -11,10 +11,12 @@
             <div class="row">
                 <div class="col-lg-2">
                     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">
-                        <i class="fa fa-plus"></i>Tambah Anggota</button>
+                        <i class="fa fa-plus"></i>Tambah Anggota
+                    </button>
                 </div>
 
-                <?php if (isset($_SESSION['_flashdata'])) {
+                <?php
+                if (isset($_SESSION['_flashdata'])) {
                     echo "<br>";
                     foreach ($_SESSION['_flashdata'] as $key => $val) {
                         echo get_flashdata($key);
@@ -37,8 +39,8 @@
                             <?php
                             $no = 1;
                             $query = "SELECT * FROM anggota a, jabatan j, user u WHERE a.jabatan_id = j.id AND a.user_id = u.id order by a.id desc";
-                            $result = mysqli_query($koneksi, $query);
-                            while ($row = mysqli_fetch_assoc($result)) {
+                            $reqult = mysqli_query($koneksi, $query);
+                            while ($row = mysqli_fetch_assoc($reqult)) {
                             ?>
                                 <tr>
                                     <th scope="row"><?= $no++ ?></th>
@@ -50,15 +52,13 @@
                                         <a href="fungsi/hapus.php?anggota=hapus&id=<?= $row['user_id'] ?>" onclick="javascript:return confirm('Hapus Data Anggota ?');" class="btn btn-danger btn-xs"><i class="fa fa-pencil-square-o"></i>Hapus</a>
                                     </td>
                                 </tr>
-                            <?php 
-                        } 
-                        ?>
+                            <?php } ?>
                         </tbody>
                     </table>
                 </div>
 
                 <div class="modal fade" id="exampleModal" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" role="dialog" aria-labelledby="modalTitleId" aria-hidden="true">
-                    <div class="modal-dialog">
+                    <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-sm" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
                                 <h1 class="modal-title fs-5" id="exampleModalLabel">Form Anggota</h1>
@@ -125,7 +125,7 @@
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" aria-hidden="true"><i class="fa fa-times"></i> Close</button>
-                                    <button type="submit" class="btn btn-primary" aria-hidden="true"><i class="fa fa-floppy-o"></i>Simpan</button>
+                                    <button type="submit" class="btn btn-primary" aria-hidden="true"><i class="fa fa-floppy-o"></i> Simpan</button>
                                 </div>
                             </form>
                         </div>
