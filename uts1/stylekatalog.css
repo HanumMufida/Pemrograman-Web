@@ -32,7 +32,7 @@ input[type="number"] {
 
 button {
     padding: 10px 10px;
-    background-color: #01153e;
+    background-color: #275dc9;
     color: white;
     border: none;
     cursor: pointer;
@@ -76,7 +76,7 @@ button:hover {
 }
 
 .quantity-btn {
-    background-color: #01153e;
+    background-color: #8299c8;
     color: white;
     border: none;
     height: 50px;
